@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class tayovanchik {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введіть число N: ");
+        int N = scanner.nextInt();
+        
+        System.out.println("Прості числа від 1 до " + N + ":");
+
+        // Перевіряємо всі числа від 2 до N
+        for (int i = 2; i <= N; i++) {
+            boolean isPrime = true;
+
+            // Вкладений цикл для перевірки, чи є число простим
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    isPrime = false; // Якщо знайшли дільник, число не просте
+                    break;
+                }
+            }
+
+            // Якщо після перевірки isPrime залишилось true, то число просте
+            if (isPrime) {
+                System.out.print(i + " ");
+            }
+        }
+
+        System.out.println(); // Перенос рядка після виведення простих чисел
+        scanner.close();
+    }
+}
